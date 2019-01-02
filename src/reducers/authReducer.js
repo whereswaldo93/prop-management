@@ -13,6 +13,7 @@ export default function(state = INITAL_STATE, action) {
             const { user } = action.payload;
             return {
                 ...state,
+                authenticated: true,
                 user
             }
         default: return state;
