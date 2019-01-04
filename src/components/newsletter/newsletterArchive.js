@@ -14,7 +14,9 @@ class NewsletterArchive extends Component {
         return (
             <div className='newsletter-archive'>
                 <div className='newsletter-archive__title'>Archive</div>
-                <div className='newsletter-archive__items'>
+                <div className='newsletter-archive__items archive-items'>
+                    <ArchiveItem title='hey' date='09/16/1995'/>
+                    <ArchiveItem title='hey' date='this is the date'/>
                     <ArchiveItem title='hey' date='this is the date'/>
                 </div>
             </div>
