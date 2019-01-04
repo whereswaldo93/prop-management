@@ -10,7 +10,7 @@
     border-radius: .5 rem;
 
 
-    &>* {
+    & >* {
         grid-column: s/e;
     }
 
@@ -36,11 +36,18 @@
     }
 
     &__body {
-        grid-row: m/m;
+        grid-row: m/e;
         p {
             margin: 6.3rem 6.05rem;
             line-height: 2.2rem;
             font-size: 1.6rem;;
         }
+    }
+
+    &__button {
+        grid-row: s/m;
+        grid-column: s/e;
+        justify-self: end;
+        align-self: end;
     }
 }
