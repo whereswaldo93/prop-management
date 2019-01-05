@@ -17,12 +17,13 @@
 //DASHBOARD
 @import 'dashboard'; 
 @import 'tab-nav';
-@import 'newsletter-grid';
 
 //NEWSLETTER
+@import 'newsletter-grid';
 @import 'newsletter-box';
 @import 'newsletter-archive';
 @import 'newsletter-latest';
+@import 'newsletter-new';
 
 //BUTTON
 @import 'button.scss';
