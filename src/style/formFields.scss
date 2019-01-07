@@ -55,6 +55,20 @@
 }
 
 //BUTTON
+
+.form-button,
+.form-button-small {
+    &__button {
+        transition: all .2s ease;
+        &:focus {
+            outline-color: none;
+        }
+        &:active {
+            transform: scale(0.95) translateY(2.05px);
+        }
+    }
+}
+
 .form-button {
     
     &__button {
