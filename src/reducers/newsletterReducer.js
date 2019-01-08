@@ -3,7 +3,7 @@ import {
 } from '../actions/types';
 
 const INITAL_STATE = {
-    newsletter: []
+    newsletters: []
 }
 
 export default function(state = INITAL_STATE, action) {
