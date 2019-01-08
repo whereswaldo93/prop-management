@@ -3,17 +3,21 @@ import { reduxForm, Field } from 'redux-form';
 
 import { FormTitle } from '../formTitle';
 import { FormInput, FormButton, FormTextArea, FormImage } from '../formFields';
+import newsletterEdit from './newsletterEdit';
 
 class NewNewsletterForm extends Component {
     render() {
 
-        const {handleSubmit, title } = this.props;
+        const {handleSubmit, formTitle, newsletterToEdit } = this.props;
+
+        const { title, body, imageUrl } = newsletterToEdit;
+        console.log( title, body, imageUrl );
 
         return (
             <form onSubmit={handleSubmit} className="new-newsletter-form">
                 <FormTitle 
                     className="new-newsletter-form__title" 
-                    text={title}
+                    text={formTitle}
                 />
                 <Field 
                     className="new-newsletter-form__newsletter-title" 

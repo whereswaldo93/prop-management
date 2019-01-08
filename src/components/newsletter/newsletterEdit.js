@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 import NewNewsletterForm from './newsletterNewForm';
 
 class EditNewsletter extends Component {
-
     onSubmit = (fields) => {
-        // console.log(button)
         // if(button =='submit') {
         //     // save newsletter on backend. perform a post request here.
         //     console.log('trying to submit to backend');
@@ -18,7 +18,7 @@ class EditNewsletter extends Component {
     }
 
     componentDidMount() {
-        //this.props.fetchNewsletterWithId()
+        this.props.fetchNewsletterWithId(this.props.match.params.id);
         console.log(this.props.match.params.id);
     }
 
@@ -26,13 +26,21 @@ class EditNewsletter extends Component {
         return (
             <div className='new-newsletter'>
                 <NewNewsletterForm 
+                newsletterToEdit = {this.props.newsletterToEdit}
                 onCancel={() => this.onCancel()} 
                 onSubmit ={(event) => this.onSubmit(event)}
-                title='Edit Newsletter'
+                formTitle='Edit Newsletter'
                 />
             </div>
         );
     }
 }
 
-export default EditNewsletter;
+function mapStateToProps(state) {
+    const { newsletterToEdit } = state.newsletters;
+    return {
+        newsletterToEdit
+    }
+}
+
+export default connect(mapStateToProps, actions)(EditNewsletter);
