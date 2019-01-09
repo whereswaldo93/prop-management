@@ -10,8 +10,14 @@ class NewNewsletterForm extends Component {
 
         const {handleSubmit, formTitle, newsletterToEdit } = this.props;
 
-        const { title, body, imageUrl } = newsletterToEdit;
-        console.log( title, body, imageUrl );
+        var title = null;
+        var body = null;
+        var imageUrl = null;
+        if(newsletterToEdit) {
+        title = newsletterToEdit.title;
+        body = newsletterToEdit.body;
+        imageUrl = newsletterToEdit.imageUrl;
+        }
 
         return (
             <form onSubmit={handleSubmit} className="new-newsletter-form">
@@ -26,6 +32,7 @@ class NewNewsletterForm extends Component {
                     type="text" 
                     title="Newsletter Title"
                     component={FormInput} 
+                    editValue={title ? title : null}
                 />
                 <Field 
                     className="new-newsletter-form__body" 
@@ -33,7 +40,8 @@ class NewNewsletterForm extends Component {
                     name="body" 
                     type="text" 
                     title="Body"
-                    component={FormTextArea} 
+                    component={FormTextArea}
+                    editValue={body ? body : null} 
                 />
                 <Field 
                     className="new-newsletter-form__submit" 
@@ -61,6 +69,7 @@ class NewNewsletterForm extends Component {
                     type="file" 
                     title="Image"
                     component={FormImage} 
+                    imageUrl={imageUrl}
                 />
             </form>
         )
