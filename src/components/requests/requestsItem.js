@@ -8,31 +8,31 @@ class RequestsItem extends Component {
     render() {
         return (
             <div className='requests-item'>
-                <div> 
-                    <Icon icon='fas fa-exclamation-triangle' className='requests-item__icon'/>
-                    <div className='requests-item__title'>
-                        Fallen door
-                    </div>
-                    <div className='requests-item__tenant-unit'>
-                        Waldo- Unit 115
-                    </div>
-                    <Icon className='requests-item__arrow' icon='fas fa-sort-down'/>
-                    <div className='requests-item__date'>
-                        9/16/95
-                    </div>
-                    <Button className='requests-item__move' callback={() => console.log('tryna change status')} icon='fas fa-wrenchs'/>
+                <Icon className='requests-item__icon' icon='fas fa-exclamation-triangle'/>
+                <div className='requests-item__title'>
+                    Fallen door
+                </div>
+                <div className='requests-item__tenant-unit'>
+                    Waldo- Unit 115
+                </div>
+                <Icon className='requests-item__arrow' icon='fas fa-sort-down'/>
+                <div className='requests-item__date'>
+                    9/16/95
+                </div>
+                <Button className='requests-item__move' callback={() => console.log('tryna change status')} icon='fas fa-wrenchs'/>
 
-                    <div className='requests-item__description'>
-                        <img
-                            className='requests-item__description-img' 
-                            src='http://via.placeholder.com/160x94'
-                        />
-                        <p className='requests-item__description-text'>
-                            lorem Ipsum lorem Ipsum lorem Ipsum
-                            lorem Ipsum	lorem Ipsum lorem Ipsum
-                            lorem Ipsum
-                        </p>
-                    </div>
+                <div className='requests-item__description'>
+                    <img
+                        className='requests-item__description-img' 
+                        src='http://via.placeholder.com/160x94'
+                    />
+                    <p className='requests-item__description-text'>
+                        lorem Ipsum lorem Ipsum lorem Ipsum
+                        lorem Ipsum	lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum
+                        lorem Ipsum	lorem Ipsum lorem Ipsum
+                        lorem Ipsum
+                    
+                    </p>
                 </div>
             </div>
         );
