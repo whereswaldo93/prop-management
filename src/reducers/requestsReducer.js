@@ -4,7 +4,7 @@ import {
 
 const INITAL_STATE = {
     request: [],
-    selectedRequests: 'pending'
+    selectedRequestType: 'pending'
 }
 
 export default function(state = INITAL_STATE, action) {
@@ -13,7 +13,7 @@ export default function(state = INITAL_STATE, action) {
             const boxType = action.payload;
             return {
                 ...state,
-                selectedRequests: boxType
+                selectedRequestType: boxType
             }
         default: return state;
     }

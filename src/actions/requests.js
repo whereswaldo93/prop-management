@@ -3,8 +3,10 @@ import {
 } from './types';
 
 export function changeSelectedRequestType(boxType) {
-    return ({
-        type: CHANGE_SELECTED_REQUEST_TYPE,
-        payload: boxType
-    })
+    return (
+        {
+            type: CHANGE_SELECTED_REQUEST_TYPE,
+            payload: boxType
+        }
+    )
 }
