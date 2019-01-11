@@ -1,8 +1,10 @@
 import React from 'react';
 
 
-export default function Icon({icon}) {
+export default function Icon({className, icon}) {
     return (
-        <i className={icon}></i>
+        <div className={className}>
+            <i className={icon}></i>
+        </div>
     )
 }
