@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 import Button from '../button';
+
 import RequestsBoxes from './requestsBoxes';
 import Requests from './requests';
 
@@ -28,6 +29,6 @@ class RequestsGrid extends Component {
     }
 }
 
-RequestsGrid = connect(null, actions)(RequestsGrid);
+RequestsGrid = connect(null, actions)(RequestsGrid)
 
 export default RequestsGrid;

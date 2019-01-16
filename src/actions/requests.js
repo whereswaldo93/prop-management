@@ -1,21 +1,23 @@
 import {
-    CHANGE_SELECTED_REQUEST_TYPE
-   } from './types';
-   import axios from 'axios';
-   import { ROOT_URL } from '../config';
-   export function changeSelectedRequestType(boxType) {
-       return (
-           {
-               type: CHANGE_SELECTED_REQUEST_TYPE,
-               payload: boxType
-           }
-       )
-   };
-   
+    CHANGE_SELECTED_REQUEST_TYPE,
+    SET_REQUESTS
+} from './types';
 
-   export function createNewRequest(userId, formData, success) {
+import axios from 'axios';
+import { ROOT_URL } from '../config';
+
+export function changeSelectedRequestType(boxType) {
+    return (
+        {
+            type: CHANGE_SELECTED_REQUEST_TYPE,
+            payload: boxType
+        }
+    )
+};
+
+export function createNewRequest(userId, formData, success) {
     const token = localStorage.getItem('token');
-    return function() {
+    return function () {
         axios.post(`${ROOT_URL}/requests/new`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -30,17 +32,19 @@ import {
                 console.log(err);
             })
     }
-} 
+}
 
 export function fetchRequests() {
     const token = localStorage.getItem('token');
-    return function() {
+    return function (dispatch) {
         axios.get(`${ROOT_URL}/requests`, {
             headers: { authorization: token }
         })
             .then(response => {
-                console.log(response.data);
-                //dispatch an action to set our requests
+                dispatch({
+                    type: SET_REQUESTS,
+                    payload: response.data
+                })
             })
             .catch(err => {
                 console.log(err);
