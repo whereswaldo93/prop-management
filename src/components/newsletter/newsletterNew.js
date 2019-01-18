@@ -18,7 +18,7 @@ class NewNewsletter extends Component {
 
         console.log(title, body, image);
 
-        this.props.createNewNewsletter(this.props._id, formData, () => {
+        this.props.createNewNewsletter(formData, () => {
             this.props.history.push('/dashboard');
         })
     }
