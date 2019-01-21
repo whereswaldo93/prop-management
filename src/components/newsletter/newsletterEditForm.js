@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+
 import { reduxForm, Field } from "redux-form";
+import { connect } from 'react-redux';
 
 import { FormTitle } from "../formTitle";
 import { FormInput, FormButton, FormTextArea, FormImage } from "../formFields";
 
+import { ROOT_URL } from '../../config';
 
-class NewNewsletterForm extends Component {
+class EditNewsletterForm extends Component {
 
   render() {
 
@@ -13,8 +16,7 @@ class NewNewsletterForm extends Component {
     const { 
         fieldOnePlaceholder, fieldOneTitle,
         fieldTwoPlaceholder, fieldTwoTitle
-    } = this.props;
-    
+    } = this.props;    
 
     return (
       <form onSubmit={handleSubmit} className="new-newsletter-form">
@@ -60,16 +62,28 @@ class NewNewsletterForm extends Component {
           type="file"
           title="Image"
           component={FormImage}
+          imageUrl={this.props.initialValues.imageUrl ?
+                    `${ROOT_URL}/${this.props.initialValues.imageUrl}` :
+                    'http://via.placeholder.com/150x137'}
         />  
-
 
       </form>
     );
   }
 }
 
-NewNewsletterForm = reduxForm({
-  form: "newnewsletter"
-})(NewNewsletterForm);
+// EditNewsletterForm = reduxForm({
+//   form: "editnewsletter",
+//   enableReinitialize: true
+// })(EditNewsletterForm);
 
-export default NewNewsletterForm;
+function mapStateToProps(state) {
+  const { newsletterToEdit } = state.newsletters;
+  return {
+      initialValues: newsletterToEdit
+  }
+}
+
+EditNewsletterForm = connect(mapStateToProps)(EditNewsletterForm);
+
+export default EditNewsletterForm;

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-const months = ['Jan', 'Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
 class NewsletterBox extends Component {
     render() {
         const { date } = this.props;
         if(!date) {
-            return <div>...fetching newsletter</div>
+            return <div>fetching...</div>
         }
-        const parsedDate= new Date(date);
+        const parsedDate = new Date(date);
         return (
             <div className='newsletter-box'>
                 <div className='newsletter-box__day'>{parsedDate.getDate()}</div>

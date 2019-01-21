@@ -52,14 +52,14 @@ export function fetchRequests() {
     }
 }
 
-export function changeStatus({_id, status}, success) {
+export function changeStatus({ _id, status }, success) {
     const token = localStorage.getItem('token');
-    return function() {
-        axios.post(`${ROOT_URL}/requests/update-status`, {_id, status}, {
+    return function () {
+        axios.post(`${ROOT_URL}/requests/update-status`, { _id, status }, {
             headers: { authorization: token }
         })
             .then(response => {
-                console.log(response.data)
+                console.log(response.data);
                 success();
             })
             .catch(err => {
